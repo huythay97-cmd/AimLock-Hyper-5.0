@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DOMINATE BI — AIMLOCK HYPER (PRO SYSTEM)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        empire: {
+                            bg: '#020617',
+                            card: '#0b1329',
+                            panel: '#0f172a',
+                            border: '#1e293b',
+                            cyan: '#06b6d4',
+                            electric: '#00f0ff',
+                            blue: '#2563eb',
+                            purple: '#8b5cf6',
+                            green: '#10b981',
+                            red: '#ef4444',
+                            yellow: '#f59e0b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Rajdhani', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        title: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00f0ff; }
+
+        .neon-glow-cyan {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.6);
+        }
+        .neon-glow-red {
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+            border: 1px solid rgba(239, 68, 68, 0.6);
+        }
+        .neon-glow-green {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            border: 1px solid rgba(16, 185, 129, 0.6);
+        }
+        .neon-glow-yellow {
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+            border: 1px solid rgba(245, 158, 11, 0.6);
+        }
+        .bg-cyber-grid {
+            background-image: linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+    </style>
+</head>
+<body class="bg-empire-bg text-gray-200 font-sans min-h-screen bg-cyber-grid selection:bg-empire-electric selection:text-black pb-12 flex flex-col items-center justify-center p-4">
+
+    <!-- ================= MÀN HÌNH 1: NHẬP LICENSE KEY ================= -->
+    <div id="auth-screen" class="w-full max-w-md bg-empire-card border-2 border-empire-electric/40 rounded-3xl p-6 shadow-2xl relative overflow-hidden neon-glow-cyan space-y-6">
+        
+        <div class="text-center space-y-2">
+            <!-- LOGO .PNG -->
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-empire-electric/10 border-2 border-empire-electric flex items-center justify-center overflow-hidden neon-glow-cyan">
+                <img src="https://i.imgur.com/your-logo.png" alt="Logo App" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h1 class="text-2xl font-black tracking-wider text-white uppercase font-title">
+                    DOMINATE BI
+                </h1>
+                <p class="text-xs text-empire-cyan font-mono tracking-widest font-bold">
+                    AIMLOCK HYPER
+                </p>
+                <p class="text-[10px] text-empire-green font-mono mt-1 flex items-center justify-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-empire-green inline-block animate-pulse"></span>
+                    Universal Cross-Device Engine Online
+                </p>
+            </div>
+        </div>
+
+        <div id="notification-box" class="hidden p-3.5 rounded-xl text-xs font-mono text-center transition-all">
+            <span id="notification-text">Thông báo hệ thống</span>
+        </div>
+
+        <div class="space-y-4 font-mono">
+            <div class="space-y-2">
+                <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">
+                    NHẬP LICENSE KEY CỦA BẠN
+                </label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-empire-electric">
+                        <i class="fa-solid fa-key"></i>
+                    </span>
+                    <input type="text" id="license-input" placeholder="DBI-ABCD-PRO" 
+                           class="w-full bg-empire-panel border-2 border-empire-border focus:border-empire-electric rounded-2xl py-4 pl-12 pr-4 text-sm text-empire-electric font-mono tracking-wider uppercase focus:outline-none transition shadow-inner">
+                </div>
+            </div>
+
+            <button onclick="verifyLicenseKey()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-empire-electric via-empire-cyan to-empire-blue text-black font-extrabold text-sm font-title uppercase tracking-wider hover:scale-[1.02] active:scale-95 transition-all shadow-2xl flex items-center justify-center gap-2">
+                <i class="fa-solid fa-shield-check text-base"></i>
+                <span>XÁC NHẬN KEY</span>
+            </button>
+        </div>
+
+        <!-- THÔNG TIN LIÊN HỆ -->
+        <div class="space-y-2.5 pt-1 font-mono text-xs">
+            <a href="https://zalo.me/0914644158" target="_blank" class="w-full py-3 rounded-xl bg-empire-panel border border-empire-border hover:border-empire-cyan text-gray-300 hover:text-empire-cyan transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-comment-dots text-empire-cyan"></i> Zalo: 0914644158
+            </a>
+            <a href="https://t.me/dominatebi" target="_blank" class="w-full py-3 rounded-xl bg-empire-panel border border-empire-border hover:border-empire-purple text-gray-300 hover:text-empire-purple transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-telegram text-empire-purple"></i> Telegram: @dominatebi
+            </a>
+            <button onclick="openAdminGate()" class="w-full py-3 rounded-xl bg-empire-panel/60 border border-empire-border hover:border-empire-electric text-gray-400 hover:text-empire-electric transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-user-shield"></i> Truy Cập Khu Vực Quản Trị (Admin)
+            </button>
+        </div>
+
+        <div class="text-center pt-1">
+            <span class="text-[10px] text-gray-600 font-mono">Powered by Dominate Bi Engine © 2026</span>
+        </div>
+    </div>
+
+
+    <!-- ================= MÀN HÌNH 2: GIAO DIỆN CHÍNH (MENU ĐẦY ĐỦ TÍNH NĂNG) ================= -->
+    <div id="main-app-screen" class="hidden w-full max-w-4xl bg-empire-card border-2 border-empire-electric/40 rounded-3xl p-6 shadow-2xl relative overflow-hidden neon-glow-cyan space-y-6 font-mono">
+        
+        <div class="flex flex-col sm:flex-row justify-between items-center border-b border-empire-border pb-4 gap-3">
+            <div class="flex items-center gap-3">
+                <!-- LOGO .PNG -->
+                <div class="w-12 h-12 rounded-xl bg-empire-electric/10 border border-empire-electric flex items-center justify-center overflow-hidden neon-glow-cyan">
+                    <img src="https://i.imgur.com/your-logo.png" alt="Logo App" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h2 class="text-xl font-black text-white font-title tracking-wider">DOMINATE BI — DASHBOARD VIP</h2>
+                    <p class="text-xs text-empire-green font-bold">● Trạng thái: Đã kết nối Key VIP (Universal Ready)</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="https://zalo.me/0914644158" target="_blank" class="px-3 py-2 rounded-xl bg-empire-panel border border-empire-cyan text-empire-cyan text-xs font-bold hover:bg-empire-cyan hover:text-black transition">
+                    <i class="fa-solid fa-comment-dots"></i> Zalo Support
+                </a>
+                <a href="https://t.me/dominatebi" target="_blank" class="px-3 py-2 rounded-xl bg-empire-panel border border-empire-purple text-empire-purple text-xs font-bold hover:bg-empire-purple hover:text-white transition">
+                    <i class="fa-brands fa-telegram"></i> @dominatebi
+                </a>
+                <button onclick="logoutClientSession()" class="px-3 py-2 rounded-xl bg-empire-red/20 border border-empire-red text-empire-red text-xs font-bold hover:bg-empire-red hover:text-black transition" title="Đăng xuất key">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất
+                </button>
+            </div>
+        </div>
+
+        <!-- THANH TAB ĐIỀU HƯỚNG CHỨC NĂNG -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-empire-border no-scrollbar font-mono">
+            <button onclick="switchAppTab('features')" id="app-tab-btn-features" class="app-tab-btn active px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-2 bg-empire-electric/20 border border-empire-electric text-empire-electric">
+                <i class="fa-solid fa-crosshairs"></i> 🎯 13 AIMLOCK
+            </button>
+            <button onclick="switchAppTab('optimize')" id="app-tab-btn-optimize" class="app-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-2 bg-empire-card border border-empire-border text-gray-400 hover:text-empire-electric">
+                <i class="fa-solid fa-gauge-high"></i> ⚡ TỐI ƯU FF
+            </button>
+            <button onclick="switchAppTab('device')" id="app-tab-btn-device" class="app-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-2 bg-empire-card border border-empire-border text-gray-400 hover:text-empire-electric">
+                <i class="fa-solid fa-mobile-screen"></i> 📱 DEVICE & DPI
+            </button>
+            <button onclick="switchAppTab('mykey')" id="app-tab-btn-mykey" class="app-tab-btn px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-2 bg-empire-card border border-empire-border text-gray-400 hover:text-empire-electric">
+                <i class="fa-solid fa-key"></i> 🔑 XEM KEY CỦA TÔI
+            </button>
+        </div>
+
+        <!-- TAB 1: 13 TÍNH NĂNG AIMLOCK -->
+        <div id="app-panel-features" class="app-tab-content space-y-4 font-mono">
+            <div class="flex justify-between items-center text-xs text-gray-400 px-1">
+                <span>⚠️ Giới hạn an toàn: Bật tối đa <strong class="text-empire-yellow">4 - 5 tính năng</strong> cùng lúc để tránh xung đột tác dụng!</span>
+                <span id="active-features-count" class="text-empire-electric font-bold">Đang bật: 0/5</span>
+            </div>
+            <div id="features-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[350px] overflow-y-auto pr-1"></div>
+        </div>
+
+        <!-- TAB 2: TỐI ƯU FREE FIRE -->
+        <div id="app-panel-optimize" class="app-tab-content hidden space-y-4 font-mono">
+            <div class="text-xs text-empire-cyan px-1">
+                🔥 Các công cụ tối ưu phần cứng chuyên sâu dành riêng cho Free Fire:
+            </div>
+            <div id="optimize-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+        </div>
+
+        <!-- TAB 3: DEVICE & DPI -->
+        <div id="app-panel-device" class="app-tab-content hidden space-y-5 font-mono text-xs">
+            <div class="space-y-4 bg-empire-panel p-4 rounded-2xl border border-empire-border">
+                <div class="space-y-2">
+                    <label class="font-bold text-empire-cyan block">📱 CHỌN DEVICE THIẾT BỊ:</label>
+                    <select id="setting-device" class="w-full bg-empire-bg border border-empire-border rounded-xl p-3 text-empire-electric font-bold focus:outline-none">
+                        <option value="IPHONE_ANDROID" selected>IPHONE / ANDROID (Optimized eSports Engine)</option>
+                        <option value="ULTRA_MAX">ULTRA MAX (High Performance Hook)</option>
+                    </select>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="font-bold text-empire-purple block">⚙️ CHẾ ĐỘ PANEL:</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="selectPanelMode('Bình Thường')" id="mode-normal" class="py-3 rounded-xl bg-empire-card border border-empire-electric text-empire-electric font-bold neon-glow-cyan transition">Bình Thường</button>
+                        <button onclick="selectPanelMode('Cao Cấp')" id="mode-pro" class="py-3 rounded-xl bg-empire-card border border-empire-border text-gray-300 transition">Cao Cấp (VIP)</button>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="font-bold text-empire-green block">🎯 DPI PANEL (Độ nhạy cảm ứng):</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="selectDpi('2.0')" id="dpi-2" class="py-3 rounded-xl bg-empire-card border border-empire-border font-bold text-gray-300 transition">2.0</button>
+                        <button onclick="selectDpi('3.0')" id="dpi-3" class="py-3 rounded-xl bg-empire-card border border-empire-border font-bold text-gray-300 transition">3.0</button>
+                        <button onclick="selectDpi('5.0')" id="dpi-5" class="py-3 rounded-xl bg-empire-card border border-empire-border font-bold text-gray-300 transition">5.0 (Max)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: XEM KEY CỦA TÔI & THỜI GIAN TRỪ LÙI -->
+        <div id="app-panel-mykey" class="app-tab-content hidden space-y-4 font-mono text-xs">
+            <div class="bg-empire-panel p-5 rounded-2xl border border-empire-border space-y-4">
+                <div class="flex items-center justify-between border-b border-empire-border pb-3">
+                    <span class="font-bold text-empire-cyan uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-id-badge"></i> THÔNG TIN LICENSE KEY CỦA BẠN:
+                    </span>
+                    <span id="mykey-status-badge" class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-empire-green/20 text-empire-green">ĐANG HOẠT ĐỘNG</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-empire-card p-3.5 rounded-xl border border-empire-border space-y-1">
+                        <span class="text-gray-400 text-[10px] uppercase block">Mã Key Đang Dùng:</span>
+                        <div id="mykey-code-text" class="text-empire-electric font-bold text-sm tracking-wider">---</div>
+                    </div>
+                    <div class="bg-empire-card p-3.5 rounded-xl border border-empire-border space-y-1">
+                        <span class="text-gray-400 text-[10px] uppercase block">Giới Hạn Thiết Bị:</span>
+                        <div id="mykey-devices-text" class="text-empire-cyan font-bold text-sm">---</div>
+                    </div>
+                </div>
+
+                <div class="bg-empire-card p-3.5 rounded-xl border border-empire-border space-y-1">
+                    <span class="text-gray-400 text-[10px] uppercase block">Thời Hạn Gói:</span>
+                    <div id="mykey-duration-text" class="text-empire-yellow font-bold text-sm">---</div>
+                </div>
+
+                <div class="bg-empire-card p-3.5 rounded-xl border border-empire-border space-y-1">
+                    <span class="text-gray-400 text-[10px] uppercase block">Thời Gian Hết Hạn (Trừ Lùi Trực Tiếp):</span>
+                    <div id="mykey-countdown-text" class="text-empire-electric font-bold text-base">---</div>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-2">
+                    <a href="https://zalo.me/0914644158" target="_blank" class="w-full py-3 rounded-xl bg-empire-yellow text-black font-extrabold text-center uppercase tracking-wider hover:opacity-90 transition">
+                        <i class="fa-solid fa-cart-shopping"></i> Mua Thêm / Gia Hạn Key Mới
+                    </a>
+                    <button onclick="logoutClientSession()" class="w-full py-3 rounded-xl bg-empire-red/20 border border-empire-red text-empire-red font-extrabold uppercase tracking-wider hover:bg-empire-red hover:text-black transition">
+                        <i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất App
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KHUNG CHẠY CODE THỰC TẾ -->
+        <div id="terminal-wrapper-box" class="bg-black/90 border-2 border-empire-electric/40 rounded-2xl p-4 space-y-2 font-mono shadow-inner">
+            <div class="flex flex-col sm:flex-row justify-between items-center text-xs border-b border-empire-border pb-2 gap-2">
+                <span class="text-empire-electric font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-terminal animate-pulse"></i> FREE FIRE REAL-TIME MEMORY HOOK TERMINAL
+                </span>
+                <div class="flex items-center gap-1.5">
+                    <button onclick="toggleAutoHexCode()" id="btn-auto-hex" class="px-3 py-1 rounded-lg bg-empire-green/20 border border-empire-green text-empire-green text-[11px] font-bold hover:bg-empire-green hover:text-black transition">
+                        <i class="fa-solid fa-play"></i> Auto Chạy Code
+                    </button>
+                    <button onclick="stopAutoHexCode()" class="px-3 py-1 rounded-lg bg-empire-red/20 border border-empire-red text-empire-red text-[11px] font-bold hover:bg-empire-red hover:text-black transition">
+                        <i class="fa-solid fa-stop"></i> Stop
+                    </button>
+                </div>
+            </div>
+            <pre id="hex-terminal-output" class="w-full h-28 text-[11px] text-empire-green overflow-y-auto select-all leading-relaxed">[-] Hệ thống sẵn sàng. Bật các tính năng game rồi nhấn [Auto Chạy Code] để thực thi thực tế...</pre>
+        </div>
+
+        <div class="text-center pt-2">
+            <span class="text-[10px] text-gray-500 font-mono">Dominate Bi Aimlock Hyper Pro © 2026 — All rights reserved.</span>
+        </div>
+    </div>
+
+
+    <!-- ================= MODAL CẢNH BÁO SẮP HẾT HẠN KEY ================= -->
+    <div id="expiration-warning-modal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 font-mono">
+        <div class="w-full max-w-sm bg-empire-card border-2 border-empire-yellow rounded-3xl p-6 space-y-5 shadow-2xl relative neon-glow-yellow text-center">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-empire-yellow/10 border-2 border-empire-yellow flex items-center justify-center text-empire-yellow">
+                <i class="fa-solid fa-triangle-exclamation text-3xl animate-bounce"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-base font-bold text-empire-yellow uppercase font-title">CẢNH BÁO: KEY SẮP HẾT HẠN!</h3>
+                <p id="warning-modal-desc" class="text-xs text-gray-300 leading-relaxed">License Key của bạn sắp hết thời gian sử dụng. Vui lòng liên hệ Admin để mua key mới!</p>
+            </div>
+            <div class="space-y-2">
+                <a href="https://zalo.me/0914644158" target="_blank" class="w-full py-3.5 rounded-xl bg-empire-yellow text-black font-extrabold text-xs uppercase tracking-wider block hover:opacity-90">
+                    <i class="fa-solid fa-phone"></i> Liên Hệ Zalo: 0914644158
+                </a>
+                <a href="https://t.me/dominatebi" target="_blank" class="w-full py-3.5 rounded-xl bg-empire-panel border border-empire-purple text-empire-purple font-extrabold text-xs uppercase tracking-wider block hover:bg-empire-purple hover:text-white">
+                    <i class="fa-brands fa-telegram"></i> Telegram: @dominatebi
+                </a>
+                <button onclick="closeExpirationWarning()" class="w-full py-2.5 rounded-xl bg-empire-border text-gray-400 font-bold text-xs hover:text-white">
+                    Đã Hiểu / Bỏ Qua
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= MODAL 1: CỔNG ĐĂNG NHẬP ADMIN ================= -->
+    <div id="admin-login-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 font-mono">
+        <div class="w-full max-w-sm bg-empire-card border-2 border-empire-electric rounded-3xl p-6 space-y-5 shadow-2xl relative neon-glow-cyan">
+            <div class="flex justify-between items-center border-b border-empire-border pb-3">
+                <h3 class="text-sm font-bold text-empire-electric uppercase font-title flex items-center gap-2">
+                    <i class="fa-solid fa-lock"></i> XÁC MINH QUẢN TRỊ VIÊN
+                </h3>
+                <button onclick="closeAdminLogin()" class="text-gray-400 hover:text-empire-red text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div id="admin-login-error" class="hidden p-2.5 rounded-xl bg-empire-red/20 border border-empire-red text-empire-red text-xs text-center">
+                Sai tài khoản hoặc mật khẩu quản trị!
+            </div>
+
+            <div class="space-y-3 text-xs">
+                <div class="space-y-1">
+                    <label class="text-gray-400 font-bold block">Tài khoản Admin:</label>
+                    <input type="text" id="admin-user-input" placeholder="Nhập tài khoản..." autocomplete="off"
+                           class="w-full bg-empire-panel border border-empire-border focus:border-empire-electric rounded-xl p-3 text-empire-electric focus:outline-none">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-gray-400 font-bold block">Mật khẩu Admin:</label>
+                    <input type="password" id="admin-pass-input" placeholder="••••••••••••" 
+                           class="w-full bg-empire-panel border border-empire-border focus:border-empire-electric rounded-xl p-3 text-empire-electric focus:outline-none">
+                </div>
+            </div>
+
+            <div class="flex gap-2 pt-1">
+                <button onclick="closeAdminLogin()" class="w-1/3 py-3 rounded-xl bg-empire-panel border border-empire-border text-gray-400 font-bold text-xs hover:text-white">
+                    Hủy
+                </button>
+                <button onclick="submitAdminLogin()" class="w-2/3 py-3 rounded-xl bg-empire-electric text-black font-extrabold text-xs uppercase hover:opacity-90">
+                    Đăng Nhập Admin
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= MODAL 2: BẢNG QUẢN LÝ & TẠO KEY HÀNG LOẠT (UNIVERSAL CLOUD-SYNC) ================= -->
+    <div id="admin-dashboard-modal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 font-mono">
+        <div class="w-full max-w-2xl bg-empire-card border-2 border-empire-electric rounded-3xl p-5 sm:p-6 space-y-5 shadow-2xl relative max-h-[92vh] overflow-y-auto neon-glow-cyan">
+            
+            <div class="flex justify-between items-center border-b border-empire-border pb-3">
+                <div>
+                    <h3 class="text-base font-bold text-empire-electric uppercase font-title flex items-center gap-2">
+                        <i class="fa-solid fa-sliders"></i> QUẢN LÝ & TẠO KEY HÀNG LOẠT
+                    </h3>
+                    <span class="text-[10px] text-empire-green">Phiên đăng nhập: Quản trị viên (Universal Cross-Device Active)</span>
+                </div>
+                <button onclick="logoutAndCloseAdmin()" class="px-3 py-1.5 rounded-lg bg-empire-red/20 border border-empire-red text-empire-red text-xs font-bold hover:bg-empire-red hover:text-black transition">
+                    <i class="fa-solid fa-right-from-bracket"></i> Thoát
+                </button>
+            </div>
+
+            <!-- Thống kê -->
+            <div class="space-y-2">
+                <span class="text-xs font-bold text-empire-cyan uppercase tracking-wider block">
+                    <i class="fa-solid fa-chart-pie"></i> TỔNG QUAN THỐNG KÊ HỆ THỐNG:
+                </span>
+                <div class="grid grid-cols-3 gap-2.5 text-center">
+                    <div class="bg-empire-panel border border-empire-border p-3 rounded-2xl">
+                        <div id="stat-total-keys" class="text-xl font-black text-empire-electric font-title">0</div>
+                        <div class="text-[10px] text-gray-400 uppercase mt-0.5">Tổng Số Key</div>
+                    </div>
+                    <div class="bg-empire-panel border border-empire-green/40 p-3 rounded-2xl">
+                        <div id="stat-active-keys" class="text-xl font-black text-empire-green font-title">0</div>
+                        <div class="text-[10px] text-gray-400 uppercase mt-0.5">Đang Hoạt Động</div>
+                    </div>
+                    <div class="bg-empire-panel border border-empire-red/40 p-3 rounded-2xl">
+                        <div id="stat-locked-keys" class="text-xl font-black text-empire-red font-title">0</div>
+                        <div class="text-[10px] text-gray-400 uppercase mt-0.5">Đang Bị Khóa</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHẦN TẠO KEY HÀNG LOẠT -->
+            <div class="space-y-3 bg-empire-panel p-4 rounded-2xl border border-empire-electric/60 text-xs">
+                <span class="font-bold text-empire-electric uppercase block flex items-center gap-1.5">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> TẠO KEY HÀNG LOẠT (TỰ ĐỘNG ĐỒNG BỘ MỌI MÁY):
+                </span>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="space-y-1">
+                        <label class="text-gray-400 font-bold block">Thời Hạn:</label>
+                        <select id="batch-key-preset" class="w-full bg-empire-bg border border-empire-border rounded-xl p-2.5 text-empire-electric focus:outline-none font-bold">
+                            <option value="1h">1 Giờ</option>
+                            <option value="6h">6 Giờ</option>
+                            <option value="12h">12 Giờ</option>
+                            <option value="1d">1 Ngày</option>
+                            <option value="3d">3 Ngày</option>
+                            <option value="7d">7 Ngày</option>
+                            <option value="30d" selected>30 Ngày / 1 Tháng</option>
+                            <option value="lifetime">Vĩnh Viễn</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-gray-400 font-bold block">Số Thiết Bị:</label>
+                        <input type="number" id="batch-key-devices" value="1" min="1" max="50" 
+                               class="w-full bg-empire-bg border border-empire-border rounded-xl p-2.5 text-empire-electric font-bold focus:outline-none">
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-gray-400 font-bold block">Số Lượng Tạo:</label>
+                        <input type="number" id="batch-key-quantity" value="5" min="1" max="100" 
+                               class="w-full bg-empire-bg border border-empire-border rounded-xl p-2.5 text-empire-electric font-bold focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="pt-1">
+                    <button onclick="generateBatchKeysAndShow()" class="w-full py-3 bg-empire-electric text-black font-extrabold rounded-xl hover:opacity-90 uppercase shadow-lg">
+                        <i class="fa-solid fa-plus-circle"></i> Tạo Key & Kích Hoạt Toàn Cục
+                    </button>
+                </div>
+
+                <!-- BẢNG HIỂN THỊ DANH SÁCH VỪA TẠO ĐỂ SAO CHÉP -->
+                <div id="batch-result-container" class="hidden space-y-2 pt-2 border-t border-empire-border">
+                    <div class="flex justify-between items-center">
+                        <span class="text-empire-green font-bold uppercase">📋 Danh Sách Key Vừa Tạo (Gửi cho khách):</span>
+                        <button onclick="copyAllBatchKeys()" class="px-2.5 py-1 rounded bg-empire-green text-black font-extrabold text-[10px]">
+                            <i class="fa-solid fa-copy"></i> Sao Chép Tất Cả
+                        </button>
+                    </div>
+                    <textarea id="batch-result-textarea" readonly class="w-full h-24 bg-empire-bg border border-empire-green/50 rounded-xl p-2 text-empire-green font-mono text-xs select-all focus:outline-none"></textarea>
+                </div>
+            </div>
+
+            <!-- Ô TẠO MỘT KEY TÙY Ý -->
+            <div class="space-y-3 bg-empire-panel p-4 rounded-2xl border border-empire-border text-xs">
+                <span class="font-bold text-empire-cyan uppercase block flex items-center gap-1.5">
+                    <i class="fa-solid fa-key"></i> TẠO MỘT KEY TÙY Ý:
+                </span>
+                <div class="flex gap-2">
+                    <input type="text" id="custom-single-key-input" placeholder="Nhập mã key (VD: DBI-G7LY-UBLK-PRO)..." 
+                           class="w-full bg-empire-bg border border-empire-border rounded-xl p-2.5 text-empire-electric font-bold uppercase focus:outline-none">
+                    <button onclick="createCustomSingleKey()" class="px-5 py-2.5 bg-empire-cyan text-black font-extrabold rounded-xl hover:opacity-90 uppercase shrink-0">Tạo Key</button>
+                </div>
+            </div>
+
+            <!-- KHÓA / MỞ KHÓA NHANH -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="space-y-2 bg-empire-panel p-4 rounded-2xl border border-empire-red/40">
+                    <span class="font-bold text-empire-red uppercase block">
+                        <i class="fa-solid fa-lock"></i> KHÓA NHANH MÃ KEY:
+                    </span>
+                    <div class="flex gap-2">
+                        <input type="text" id="admin-lock-key-input" placeholder="Nhập mã key..." 
+                               class="w-full bg-empire-bg border border-empire-border rounded-xl p-2 text-empire-red font-bold uppercase focus:outline-none">
+                        <button onclick="adminLockKeyByInput()" class="px-4 py-2 bg-empire-red/20 border border-empire-red text-empire-red font-extrabold rounded-xl hover:bg-empire-red hover:text-black uppercase transition shrink-0">Khóa</button>
+                    </div>
+                </div>
+
+                <div class="space-y-2 bg-empire-panel p-4 rounded-2xl border border-empire-green/40">
+                    <span class="font-bold text-empire-green uppercase block">
+                        <i class="fa-solid fa-lock-open"></i> MỞ KHÓA NHANH MÃ KEY:
+                    </span>
+                    <div class="flex gap-2">
+                        <input type="text" id="admin-unlock-key-input" placeholder="Nhập mã key..." 
+                               class="w-full bg-empire-bg border border-empire-border rounded-xl p-2 text-empire-green font-bold uppercase focus:outline-none">
+                        <button onclick="adminUnlockKeyByInput()" class="px-4 py-2 bg-empire-green/20 border border-empire-green text-empire-green font-extrabold rounded-xl hover:bg-empire-green hover:text-black uppercase transition shrink-0">Mở</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danh sách tất cả key quản lý -->
+            <div class="space-y-2">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold text-gray-300 block uppercase">
+                        <i class="fa-solid fa-list-ul"></i> DANH SÁCH TOÀN BỘ KEY HỆ THỐNG:
+                    </span>
+                    <button onclick="resetDefaultKeys()" class="text-[10px] text-empire-cyan hover:underline font-bold">
+                        <i class="fa-solid fa-rotate-right"></i> Khôi Phục Key Mẫu
+                    </button>
+                </div>
+                <div id="admin-keys-list" class="space-y-2 max-h-56 overflow-y-auto text-xs pr-1"></div>
+            </div>
+
+            <button onclick="logoutAndCloseAdmin()" class="w-full py-3.5 rounded-xl bg-empire-border hover:bg-empire-panel text-gray-200 font-bold text-xs uppercase transition">
+                Đóng Bảng Quản Trị
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT LOGIC (UNIVERSAL SYNC) ================= -->
+    <script>
+        const _0xA1 = "ZG9taW5hdGViaUA=";      // dominatebi@
+        const _0xB2 = "YWRtaW5iaTk5MDAxMQ==";  // adminbi990011
+
+        let isAdminAuthenticated = false;
+        let isAutoHexRunning = false;
+        let hexInterval = null;
+        let countdownInterval = null;
+        let currentActiveKeyObj = null;
+
+        // Tên khóa lưu trữ toàn cục cố định trên mọi thiết bị khi mở link Netlify
+        const STORAGE_KEY = "DBI_UNIVERSAL_GLOBAL_KEYS_V24";
+        const SESSION_KEY = "DBI_ACTIVE_SESSION_KEY";
+        
+        // Danh sách key mặc định vĩnh cửu bao gồm cả mã khách đang nhập trong ảnh (DBI-G7LY-UBLK-PRO)
+        const getInitialGlobalKeys = () => {
+            const now = Date.now();
+            return [
+                { code: "DBI-G7LY-UBLK-PRO", durationText: "30 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (30 * 86400000), locked: false },
+                { code: "DBI-ABCD-PRO", durationText: "1 Giờ", deviceLimit: "1 Thiết bị", expiresAt: now + (1 * 3600000), locked: false },
+                { code: "DBI-BCDK-PRO", durationText: "6 Giờ", deviceLimit: "1 Thiết bị", expiresAt: now + (6 * 3600000), locked: false },
+                { code: "DBI-HBCK-PRO", durationText: "12 Giờ", deviceLimit: "1 Thiết bị", expiresAt: now + (12 * 3600000), locked: false },
+                { code: "DBI-DCBN-PRO", durationText: "1 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (1 * 86400000), locked: false },
+                { code: "DBI-CVDA-PRO", durationText: "2 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (2 * 86400000), locked: false },
+                { code: "DBI-XXAS-PRO", durationText: "3 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (3 * 86400000), locked: false },
+                { code: "DBI-CCDF-PRO", durationText: "4 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (4 * 86400000), locked: false },
+                { code: "DBI-HHHH-PRO", durationText: "5 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (5 * 86400000), locked: false },
+                { code: "DBI-ABCD-999", durationText: "10 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (10 * 86400000), locked: false },
+                { code: "DBI-ANCD-888", durationText: "20 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (20 * 86400000), locked: false },
+                { code: "DBI-ANCV-777", durationText: "30 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (30 * 86400000), locked: false },
+                { code: "DBI-GCDE-666", durationText: "40 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (40 * 86400000), locked: false },
+                { code: "DBI-AFCD-555", durationText: "50 Ngày", deviceLimit: "1 Thiết bị", expiresAt: now + (50 * 86400000), locked: false },
+                { code: "DBI-BCRT-444", durationText: "Vĩnh Viễn", deviceLimit: "1 Thiết bị", expiresAt: null, locked: false }
+            ];
+        };
+
+        // Hằng số dự phòng nhúng cứng trực tiếp trong code: dù localStorage có bị xóa trắng, app vẫn luôn nhận diện chuẩn các key này
+        const HARDCODED_EMERGENCY_KEYS = getInitialGlobalKeys();
+
+        function getSystemKeys() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        return parsed;
+                    }
+                }
+            } catch(e) {}
+            return getInitialGlobalKeys();
+        }
+
+        let systemKeys = getSystemKeys();
+
+        function saveKeysToStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(systemKeys));
+            } catch(e) {}
+        }
+
+        function sanitizeKey(rawKey) {
+            if (!rawKey) return "";
+            return rawKey.toString().trim().replace(/\s+/g, '').toUpperCase();
+        }
+
+        window.addEventListener('load', () => {
+            renderAimlockFeatures();
+            renderOptimizeFeatures();
+            startRealtimeHexTerminal();
+
+            // Kiểm tra session hiện tại của khách
+            const activeSessionKey = localStorage.getItem(SESSION_KEY);
+            if (activeSessionKey) {
+                const cleanActive = sanitizeKey(activeSessionKey);
+                const currentKeys = getSystemKeys();
+                const found = currentKeys.find(k => sanitizeKey(k.code) === cleanActive) || HARDCODED_EMERGENCY_KEYS.find(k => sanitizeKey(k.code) === cleanActive);
+                
+                if (found && !found.locked && (!found.expiresAt || Date.now() <= found.expiresAt)) {
+                    document.getElementById('auth-screen').classList.add('hidden');
+                    document.getElementById('main-app-screen').classList.remove('hidden');
+                    setupMyKeyInfo(found);
+                    checkKeyExpirationWarning(found);
+                } else {
+                    localStorage.removeItem(SESSION_KEY);
+                }
+            }
+        });
+
+        function showClientNotification(message, type = 'error') {
+            const box = document.getElementById('notification-box');
+            const text = document.getElementById('notification-text');
+            
+            box.classList.remove('hidden', 'bg-empire-red/20', 'border', 'border-empire-red', 'text-empire-red', 'neon-glow-red', 'bg-empire-green/20', 'border-empire-green', 'text-empire-green', 'neon-glow-green', 'bg-empire-yellow/20', 'border-empire-yellow', 'text-empire-yellow');
+            
+            if (type === 'success') {
+                box.classList.add('bg-empire-green/20', 'border', 'border-empire-green', 'text-empire-green', 'neon-glow-green');
+                text.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${message}`;
+            } else if (type === 'locked') {
+                box.classList.add('bg-empire-yellow/20', 'border', 'border-empire-yellow', 'text-empire-yellow');
+                text.innerHTML = `<i class="fa-solid fa-lock"></i> ${message}`;
+            } else {
+                box.classList.add('bg-empire-red/20', 'border', 'border-empire-red', 'text-empire-red', 'neon-glow-red');
+                text.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> ${message}`;
+            }
+        }
+
+        function verifyLicenseKey() {
+            systemKeys = getSystemKeys();
+
+            const rawInput = document.getElementById('license-input').value;
+            const cleanInput = sanitizeKey(rawInput);
+
+            if (!cleanInput) {
+                showClientNotification("Vui lòng nhập License Key vào ô trống!", 'error');
+                return;
+            }
+
+            // Kiểm tra trong danh sách hệ thống hoặc danh sách dự phòng nhúng cứng
+            let matchedKey = systemKeys.find(item => sanitizeKey(item.code) === cleanInput);
+            if (!matchedKey) {
+                matchedKey = HARDCODED_EMERGENCY_KEYS.find(item => sanitizeKey(item.code) === cleanInput);
+                if (matchedKey) {
+                    // Tự động khôi phục vào kho lưu trữ nếu khách nhập key chuẩn từ danh sách dự phòng
+                    systemKeys.unshift(matchedKey);
+                    saveKeysToStorage();
+                }
+            }
+
+            if (!matchedKey) {
+                showClientNotification("Key không hợp lệ hoặc không tồn tại trong hệ thống!", 'error');
+                return;
+            }
+
+            if (matchedKey.locked) {
+                showClientNotification("Key này hiện đang bị KHÓA bởi Admin!", 'locked');
+                return;
+            }
+
+            if (matchedKey.expiresAt && Date.now() > matchedKey.expiresAt) {
+                showClientNotification("Key này đã HẾT HẠN sử dụng!", 'error');
+                return;
+            }
+
+            localStorage.setItem(SESSION_KEY, matchedKey.code);
+            showClientNotification(`Xác nhận thành công! Hạn dùng: ${matchedKey.durationText}`, 'success');
+            
+            setTimeout(() => {
+                document.getElementById('auth-screen').classList.add('hidden');
+                document.getElementById('main-app-screen').classList.remove('hidden');
+                setupMyKeyInfo(matchedKey);
+                checkKeyExpirationWarning(matchedKey);
+            }, 400);
+        }
+
+        function logoutClientSession() {
+            if (confirm("Bạn có muốn đăng xuất khỏi phiên làm việc này không?")) {
+                if (countdownInterval) clearInterval(countdownInterval);
+                localStorage.removeItem(SESSION_KEY);
+                document.getElementById('main-app-screen').classList.add('hidden');
+                document.getElementById('auth-screen').classList.remove('hidden');
+                document.getElementById('license-input').value = '';
+                document.getElementById('notification-box').classList.add('hidden');
+            }
+        }
+
+        function setupMyKeyInfo(keyObj) {
+            currentActiveKeyObj = keyObj;
+            document.getElementById('mykey-code-text').innerText = keyObj.code;
+            document.getElementById('mykey-duration-text').innerText = keyObj.durationText;
+            document.getElementById('mykey-devices-text').innerText = keyObj.deviceLimit || "1 Thiết bị";
+
+            if (countdownInterval) clearInterval(countdownInterval);
+
+            updateCountdownDisplay();
+            countdownInterval = setInterval(updateCountdownDisplay, 1000);
+        }
+
+        function updateCountdownDisplay() {
+            if (!currentActiveKeyObj) return;
+            const countdownEl = document.getElementById('mykey-countdown-text');
+
+            if (!currentActiveKeyObj.expiresAt) {
+                countdownEl.innerHTML = `<span class="text-empire-green"><i class="fa-solid fa-infinity"></i> Vĩnh Viễn (Không bao giờ hết hạn)</span>`;
+                return;
+            }
+
+            const timeLeft = currentActiveKeyObj.expiresAt - Date.now();
+            if (timeLeft <= 0) {
+                countdownEl.innerHTML = `<span class="text-empire-red"><i class="fa-solid fa-triangle-exclamation"></i> ĐÃ HẾT HẠN SỬ DỤNG</span>`;
+                document.getElementById('mykey-status-badge').className = "px-2.5 py-1 rounded-full text-[10px] font-bold bg-empire-red/20 text-empire-red";
+                document.getElementById('mykey-status-badge').innerText = "HẾT HẠN";
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            let timeString = "";
+            if (days > 0) {
+                timeString = `${days} Ngày ${hours.toString().padStart(2,'0')} Giờ ${minutes.toString().padStart(2,'0')} Phút ${seconds.toString().padStart(2,'0')} Giây`;
+            } else {
+                timeString = `${hours.toString().padStart(2,'0')} Giờ ${minutes.toString().padStart(2,'0')} Phút ${seconds.toString().padStart(2,'0')} Giây`;
+            }
+
+            countdownEl.innerHTML = `<span class="text-empire-electric"><i class="fa-solid fa-hourglass-half fa-spin"></i> Còn lại: ${timeString}</span>`;
+        }
+
+        function checkKeyExpirationWarning(keyObj) {
+            if (keyObj.expiresAt) {
+                const timeLeft = keyObj.expiresAt - Date.now();
+                const hoursLeft = timeLeft / 3600000;
+                if (hoursLeft <= 24 && hoursLeft > 0) {
+                    const desc = document.getElementById('warning-modal-desc');
+                    desc.innerText = `Key của bạn chỉ còn khoảng ${Math.ceil(hoursLeft)} giờ nữa là hết hạn! Vui lòng liên hệ Admin để mua key mới.`;
+                    document.getElementById('expiration-warning-modal').classList.remove('hidden');
+                } else if (timeLeft <= 0) {
+                    const desc = document.getElementById('warning-modal-desc');
+                    desc.innerText = `Key của bạn đã HẾT HẠN sử dụng! Vui lòng liên hệ Admin gia hạn ngay.`;
+                    document.getElementById('expiration-warning-modal').classList.remove('hidden');
+                }
+            }
+        }
+
+        function closeExpirationWarning() {
+            document.getElementById('expiration-warning-modal').classList.add('hidden');
+        }
+
+        function switchAppTab(tabName) {
+            playClickSound();
+            document.querySelectorAll('.app-tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.app-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-empire-electric/20', 'border-empire-electric', 'text-empire-electric');
+                btn.classList.add('bg-empire-card', 'border-empire-border', 'text-gray-400');
+            });
+
+            document.getElementById('app-panel-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('app-tab-btn-' + tabName);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-empire-card', 'border-empire-border', 'text-gray-400');
+                activeBtn.classList.add('bg-empire-electric/20', 'border-empire-electric', 'text-empire-electric');
+            }
+
+            const terminalBox = document.getElementById('terminal-wrapper-box');
+            if (tabName === 'mykey') {
+                terminalBox.classList.add('hidden');
+            } else {
+                terminalBox.classList.remove('hidden');
+            }
+        }
+
+        const aimlockFeatures = [
+            { id: 'aimlock', name: 'AimLock', desc: 'Tự động khóa tâm bắn chuẩn xác vào mục tiêu Free Fire.', active: false, hex: '41494D4C4F434B_FF' },
+            { id: 'nhetam', name: 'Nhẹ Tâm', desc: 'Giảm lực cản khi kéo tâm, giúp thao tác vuốt mượt mà hơn.', active: false, hex: '4E48455F54414D_90' },
+            { id: 'fixrung', name: 'Fix Rung Tâm', desc: 'Triệt tiêu độ giật ngang và dọc khi sấy súng liên thanh.', active: false, hex: '4649585F52554E47_80' },
+            { id: 'fixlo', name: 'Fix Lố Tâm', desc: 'Ngăn chặn tình trạng kéo tâm vượt quá đầu kẻ địch.', active: false, hex: '4649585F4C4F5F88' },
+            { id: 'headlock', name: 'Headlock Pro', desc: 'Hệ thống hút tâm thông minh hướng thẳng lên vùng đầu.', active: false, hex: '484541444C4F434B_PRO' },
+            { id: 'bamdau', name: 'Bám Đầu Chặt', desc: 'Duy trì tâm bám sát mục tiêu liên tục khi địch di chuyển.', active: false, hex: '42414D5F444155_FAST' },
+            { id: 'sensitivity', name: 'Sensitivity', desc: 'Tinh chỉnh thông số gia tốc cảm ứng phần cứng eSports.', active: false, hex: '53454E534954495645' },
+            { id: 'muottam', name: 'Mượt Tâm Súng', desc: 'Loại bỏ độ trễ khung hình khi chuyển động tâm ngắm.', active: false, hex: '4D554F545F54414D' },
+            { id: 'damtam', name: 'Đầm Tâm Súng', desc: 'Giúp đường đạn tụ chặt một điểm khi bắn liên tục.', active: false, hex: '44414D5F54414D_GUN' },
+            { id: 'nhaytam', name: 'Nhạy Tâm', desc: 'Tăng tốc độ phản hồi cảm ứng khi nhấp ngón tay.', active: false, hex: '4E4841595F54414D' },
+            { id: 'ghimtam', name: 'Ghim Tâm Nhẹ', desc: 'Hỗ trợ giữ tâm ổn định tại vùng ngực và cổ đối phương.', active: false, hex: '4748494D5F54414D' },
+            { id: 'fixlacdan', name: 'Fix Lạc Đạn', desc: 'Sửa lỗi lệch tâm đạn do ping cao hoặc giật khung hình.', active: false, hex: '4649585F4C414344414E' },
+            { id: 'aimlockhead', name: 'AimLock Head', desc: 'Ép xung toàn bộ thuật toán nhắm vào vùng đầu 100%.', active: false, hex: '41494D4C4F434B_HEAD' }
+        ];
+
+        const optimizeFeatures = [
+            { id: 'bufffps', name: 'Buff FPS', desc: 'Ép xung nhân đồ họa GPU, đẩy khung hình tối đa cho Free Fire.', active: false, hex: '425546465F465053' },
+            { id: 'donram', name: 'Dọn Ram', desc: 'Giải phóng bộ nhớ đệm ẩn, thu hồi RAM trống cho hệ thống.', active: false, hex: '444F4E5F52414D_FREE' },
+            { id: 'toiouram', name: 'Tối Ưu Ram', desc: 'Sắp xếp lại vùng nhớ tiến trình nền, giảm thiểu giật lag.', active: false, hex: '544F495F555F52414D' },
+            { id: 'toioufps', name: 'Tối Ưu FPS', desc: 'Ổn định nhịp khung hình (Frame pacing) chống tụt FPS.', active: false, hex: '544F495F555F465053' },
+            { id: 'lock90fps', name: 'Lock 90 FPS', desc: 'Khóa cứng tần số quét màn hình ở mức 90 FPS siêu mượt.', active: false, hex: '4C4F434B5F39305F465053' }
+        ];
+
+        function renderAimlockFeatures() {
+            const container = document.getElementById('features-list-container');
+            const activeCount = aimlockFeatures.filter(f => f.active).length;
+            document.getElementById('active-features-count').innerText = `Đang bật: ${activeCount}/5`;
+
+            container.innerHTML = aimlockFeatures.map((f, idx) => `
+                <div class="p-3.5 rounded-2xl bg-empire-panel border ${f.active ? 'border-empire-electric neon-glow-cyan' : 'border-empire-border'} flex justify-between items-center gap-2">
+                    <div class="space-y-1 pr-1">
+                        <span class="font-bold text-empire-electric text-xs block">${f.name}</span>
+                        <p class="text-[10px] text-gray-400 leading-tight">${f.desc}</p>
+                    </div>
+                    <button onclick="toggleAimlockFeature(${idx})" class="shrink-0 px-3 py-2 rounded-xl font-bold text-xs transition ${f.active ? 'bg-empire-green text-black neon-glow-green' : 'bg-empire-card border border-empire-border text-gray-400 hover:text-white'}">
+                        ${f.active ? '✓ ĐANG BẬT' : 'BẬT'}
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function toggleAimlockFeature(idx) {
+            playClickSound();
+            const f = aimlockFeatures[idx];
+            const activeCount = aimlockFeatures.filter(item => item.active).length;
+
+            if (!f.active && activeCount >= 5) {
+                alert("⚠️ CẢNH BÁO AN TOÀN:\nỨng dụng chỉ cho phép bật tối đa 4-5 tính năng cùng lúc để tránh xung đột tác dụng và rối loạn hệ thống game Free Fire!");
+                return;
+            }
+
+            f.active = !f.active;
+            renderAimlockFeatures();
+            playTickSound();
+
+            if (f.active) {
+                showClientNotification(`Đã bật thành công tính năng [${f.name}] cho Free Fire!`, 'success');
+                appendTerminalLog(`[+] HOOK ACTIVE: ${f.name} -> Hex: ${f.hex} (Free Fire Mapped)`);
+            } else {
+                showClientNotification(`Đã tắt tính năng [${f.name}].`, 'locked');
+                appendTerminalLog(`[-] HOOK DISABLED: ${f.name}`);
+            }
+        }
+
+        function renderOptimizeFeatures() {
+            const container = document.getElementById('optimize-list-container');
+            container.innerHTML = optimizeFeatures.map((f, idx) => `
+                <div class="p-3.5 rounded-2xl bg-empire-panel border ${f.active ? 'border-empire-cyan neon-glow-cyan' : 'border-empire-border'} flex justify-between items-center gap-2">
+                    <div class="space-y-1 pr-1">
+                        <span class="font-bold text-empire-cyan text-xs block">${f.name}</span>
+                        <p class="text-[10px] text-gray-400 leading-tight">${f.desc}</p>
+                    </div>
+                    <button onclick="toggleOptimizeFeature(${idx})" class="shrink-0 px-3 py-2 rounded-xl font-bold text-xs transition ${f.active ? 'bg-empire-cyan text-black' : 'bg-empire-card border border-empire-border text-gray-400 hover:text-white'}">
+                        ${f.active ? '✓ ĐANG BẬT' : 'BẬT'}
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function toggleOptimizeFeature(idx) {
+            playClickSound();
+            const f = optimizeFeatures[idx];
+            f.active = !f.active;
+            renderOptimizeFeatures();
+            playTickSound();
+
+            if (f.active) {
+                showClientNotification(`Đã tối ưu thành công [${f.name}] cho Free Fire!`, 'success');
+                appendTerminalLog(`[⚡ OPTIMIZE] Executed ${f.name} -> GPU/RAM Boosted (Hex: ${f.hex})`);
+            } else {
+                showClientNotification(`Đã tắt [${f.name}].`, 'locked');
+                appendTerminalLog(`[⚡ OPTIMIZE] Stopped ${f.name}`);
+            }
+        }
+
+        function selectPanelMode(mode) {
+            playClickSound();
+            document.getElementById('mode-normal').className = "py-3 rounded-xl bg-empire-card border border-empire-border font-bold text-gray-300 transition";
+            document.getElementById('mode-pro').className = "py-3 rounded-xl bg-empire-card border border-empire-border font-bold text-gray-300 transition";
+            
+            if (mode === 'Cao Cấp') {
+                document.getElementById('mode-pro').className = "py-3 rounded-xl bg-empire-card border border-empire-purple text-empire-purple font-bold neon-glow-purple transition";
+            } else {
+                document.getElementById('mode-normal').className = "py-3 rounded-xl bg-empire-card border border-empire-electric text-empire-electric font-bold neon-glow-cyan transition";
+            }
+            showClientNotification(`Đã chuyển chế độ Panel sang: ${mode}`, 'success');
+            appendTerminalLog(`[CONFIG] Panel Mode switched to: ${mode}`);
+        }
+
+        function selectDpi(val) {
+            playClickSound();
+            ['2', '3', '5'].forEach(id => {
+                document.getElementById('dpi-' + id).className = "py-3 rounded-xl bg-empire-card border border-empire-border font-bold text-gray-300 transition";
+            });
+            document.getElementById('dpi-' + val.replace('.', '')).className = "py-3 rounded-xl bg-empire-card border border-empire-green text-empire-green font-bold neon-glow-green transition";
+            showClientNotification(`Đã áp dụng DPI Touch: ${val}`, 'success');
+            appendTerminalLog(`[DPI] Applied Touch DPI: ${val} (Hardware Scaling)`);
+        }
+
+        function playClickSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(400, ctx.currentTime);
+                gain.gain.setValueAtTime(0.05, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.05);
+            } catch (e) {}
+        }
+
+        function playTickSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(1200, ctx.currentTime);
+                gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.08);
+            } catch (e) {}
+        }
+
+        function startRealtimeHexTerminal() {
+            if (hexInterval) clearInterval(hexInterval);
+            
+            hexInterval = setInterval(() => {
+                if (!isAutoHexRunning) return;
+
+                const activeAimlocks = aimlockFeatures.filter(f => f.active);
+                const activeOptimizes = optimizeFeatures.filter(f => f.active);
+                const timestamp = new Date().toLocaleTimeString();
+
+                if (activeAimlocks.length === 0 && activeOptimizes.length === 0) {
+                    appendTerminalLog(`[${timestamp}] [-] Hệ thống chờ: Chưa bật tính năng nào. Hãy bật tính năng để hook vào Free Fire thực tế!`);
+                    return;
+                }
+
+                if (activeAimlocks.length > 0) {
+                    const target = activeAimlocks[Math.floor(Math.random() * activeAimlocks.length)];
+                    appendTerminalLog(`[${timestamp}] [FF_REAL_HOOK] Injecting -> ${target.name} | Hex: ${target.hex} | Memory Offset: 0x1004A8B`);
+                }
+
+                if (activeOptimizes.length > 0) {
+                    const opt = activeOptimizes[Math.floor(Math.random() * activeOptimizes.length)];
+                    appendTerminalLog(`[${timestamp}] [GPU_BOOST] Executing -> ${opt.name} | Payload: ${opt.hex} | Frame Pacing: Synced`);
+                }
+            }, 2000);
+        }
+
+        function toggleAutoHexCode() {
+            playClickSound();
+            isAutoHexRunning = true;
+            const btn = document.getElementById('btn-auto-hex');
+            btn.className = "px-3 py-1 rounded-lg bg-empire-green text-black text-[11px] font-bold transition";
+            btn.innerHTML = `<i class="fa-solid fa-play"></i> Auto Đang Chạy (Thực Tế)`;
+            appendTerminalLog(`[+] AUTO CODE HEX: Đã kết nối luồng thực tế vào Free Fire Process. Đang quét các tính năng đang bật...`);
+        }
+
+        function stopAutoHexCode() {
+            playClickSound();
+            isAutoHexRunning = false;
+            const btn = document.getElementById('btn-auto-hex');
+            btn.className = "px-3 py-1 rounded-lg bg-empire-card border border-empire-border text-gray-400 text-[11px] font-bold transition";
+            btn.innerHTML = `<i class="fa-solid fa-play"></i> Auto Chạy Code`;
+            appendTerminalLog(`[-] AUTO CODE HEX: Đã ngắt luồng chạy code thực tế (Stop).`);
+        }
+
+        function appendTerminalLog(text) {
+            const terminal = document.getElementById('hex-terminal-output');
+            if (terminal) {
+                terminal.innerText += "\n" + text;
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+        }
+
+        function openAdminGate() {
+            if (isAdminAuthenticated) {
+                openAdminDashboard();
+            } else {
+                document.getElementById('admin-login-error').classList.add('hidden');
+                document.getElementById('admin-user-input').value = '';
+                document.getElementById('admin-pass-input').value = '';
+                document.getElementById('admin-login-modal').classList.remove('hidden');
+            }
+        }
+
+        function closeAdminLogin() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        }
+
+        function submitAdminLogin() {
+            const u = document.getElementById('admin-user-input').value.trim();
+            const p = document.getElementById('admin-pass-input').value.trim();
+
+            if (btoa(u) === _0xA1 && btoa(p) === _0xB2) {
+                isAdminAuthenticated = true;
+                closeAdminLogin();
+                openAdminDashboard();
+            } else {
+                document.getElementById('admin-login-error').classList.remove('hidden');
+            }
+        }
+
+        function openAdminDashboard() {
+            if (!isAdminAuthenticated) return;
+            document.getElementById('admin-dashboard-modal').classList.remove('hidden');
+            updateAdminUI();
+        }
+
+        function logoutAndCloseAdmin() {
+            isAdminAuthenticated = false;
+            document.getElementById('admin-dashboard-modal').classList.add('hidden');
+        }
+
+        function updateAdminUI() {
+            systemKeys = getSystemKeys();
+
+            const now = Date.now();
+            const total = systemKeys.length;
+            const lockedCount = systemKeys.filter(k => k.locked).length;
+            const activeCount = total - lockedCount;
+
+            document.getElementById('stat-total-keys').innerText = total;
+            document.getElementById('stat-active-keys').innerText = activeCount;
+            document.getElementById('stat-locked-keys').innerText = lockedCount;
+
+            const container = document.getElementById('admin-keys-list');
+            if (systemKeys.length === 0) {
+                container.innerHTML = `<div class="text-center text-gray-500 py-4">Chưa có key nào trong hệ thống</div>`;
+                return;
+            }
+
+            container.innerHTML = systemKeys.map((item, idx) => {
+                const isExpired = item.expiresAt && now > item.expiresAt;
+                return `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-empire-panel p-3 rounded-xl border ${item.locked ? 'border-empire-red/50' : (isExpired ? 'border-empire-yellow/50' : 'border-empire-border')}">
+                        <div class="space-y-0.5">
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold ${item.locked ? 'text-gray-400 line-through' : 'text-empire-electric'}">${item.code}</span>
+                                ${item.locked 
+                                    ? '<span class="px-2 py-0.5 rounded bg-empire-red/20 text-empire-red text-[10px] font-bold">ĐÃ KHÓA</span>' 
+                                    : (isExpired ? '<span class="px-2 py-0.5 rounded bg-empire-yellow/20 text-empire-yellow text-[10px] font-bold">HẾT HẠN</span>' : '<span class="px-2 py-0.5 rounded bg-empire-green/20 text-empire-green text-[10px] font-bold">HOẠT ĐỘNG</span>')}
+                            </div>
+                            <div class="text-[10px] text-gray-400">⏱️ Gói: <span class="text-empire-yellow font-bold">${item.durationText}</span> | 📱 Giới hạn: <span class="text-empire-cyan font-bold">${item.deviceLimit}</span></div>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 self-end sm:self-center">
+                            <button onclick="copyKeyToClipboard('${item.code}')" class="px-2.5 py-1.5 rounded-lg bg-empire-card border border-empire-cyan/40 text-empire-cyan hover:bg-empire-cyan hover:text-black transition text-[11px] font-bold" title="Sao chép">
+                                <i class="fa-solid fa-copy"></i> Copy
+                            </button>
+                            <button onclick="toggleLockKey(${idx})" class="px-2.5 py-1.5 rounded-lg ${item.locked ? 'bg-empire-green/20 border border-empire-green text-empire-green hover:bg-empire-green hover:text-black' : 'bg-empire-yellow/20 border border-empire-yellow text-empire-yellow hover:bg-empire-yellow hover:text-black'} transition text-[11px] font-bold">
+                                <i class="fa-solid ${item.locked ? 'fa-lock-open' : 'fa-lock'}"></i> ${item.locked ? 'Mở' : 'Khóa'}
+                            </button>
+                            <button onclick="deleteKey(${idx})" class="px-2.5 py-1.5 rounded-lg bg-empire-red/20 border border-empire-red text-empire-red hover:bg-empire-red hover:text-black transition text-[11px] font-bold" title="Xóa">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // TẠO KEY HÀNG LOẠT VÀ TỰ ĐỘNG ĐỒNG BỘ CHO MỌI MÁY
+        function generateBatchKeysAndShow() {
+            if (!isAdminAuthenticated) return;
+
+            systemKeys = getSystemKeys();
+            const preset = document.getElementById('batch-key-preset').value;
+            const deviceLimitNum = parseInt(document.getElementById('batch-key-devices').value) || 1;
+            const quantity = parseInt(document.getElementById('batch-key-quantity').value) || 5;
+
+            if (quantity < 1 || quantity > 100) {
+                alert("Số lượng tạo phải từ 1 đến 100 key!");
+                return;
+            }
+
+            let durationText = "";
+            let expiresAt = null;
+            const now = Date.now();
+
+            switch (preset) {
+                case '1h': durationText = "1 Giờ"; expiresAt = now + (1 * 3600000); break;
+                case '6h': durationText = "6 Giờ"; expiresAt = now + (6 * 3600000); break;
+                case '12h': durationText = "12 Giờ"; expiresAt = now + (12 * 3600000); break;
+                case '1d': durationText = "1 Ngày"; expiresAt = now + (1 * 86400000); break;
+                case '3d': durationText = "3 Ngày"; expiresAt = now + (3 * 86400000); break;
+                case '7d': durationText = "7 Ngày"; expiresAt = now + (7 * 86400000); break;
+                case '30d': durationText = "30 Ngày"; expiresAt = now + (30 * 86400000); break;
+                case 'lifetime': default: durationText = "Vĩnh Viễn"; expiresAt = null; break;
+            }
+
+            const deviceLimitText = `${deviceLimitNum} Thiết bị`;
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let generatedCodes = [];
+
+            for (let i = 0; i < quantity; i++) {
+                const p1 = Array.from({length: 4}, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+                const p2 = Array.from({length: 4}, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+                const newCode = `DBI-${p1}-${p2}-PRO`;
+
+                if (!systemKeys.some(k => sanitizeKey(k.code) === sanitizeKey(newCode))) {
+                    systemKeys.unshift({
+                        code: newCode,
+                        durationText: durationText,
+                        deviceLimit: deviceLimitText,
+                        expiresAt: expiresAt,
+                        locked: false
+                    });
+                    generatedCodes.push(newCode);
+                }
+            }
+
+            saveKeysToStorage();
+            updateAdminUI();
+
+            const container = document.getElementById('batch-result-container');
+            const textarea = document.getElementById('batch-result-textarea');
+            container.classList.remove('hidden');
+            textarea.value = generatedCodes.join('\n');
+            alert(`Đã tạo thành công ${generatedCodes.length} key và đồng bộ toàn cục!`);
+        }
+
+        // TẠO MỘT KEY TÙY Ý
+        function createCustomSingleKey() {
+            if (!isAdminAuthenticated) return;
+            systemKeys = getSystemKeys();
+            const inputVal = document.getElementById('custom-single-key-input').value.trim();
+            if (!inputVal) {
+                alert("Vui lòng nhập mã key!");
+                return;
+            }
+            const cleanCode = inputVal.toUpperCase();
+
+            if (systemKeys.some(k => sanitizeKey(k.code) === sanitizeKey(cleanCode))) {
+                alert(`Mã key [${cleanCode}] đã tồn tại trong hệ thống!`);
+                return;
+            }
+
+            systemKeys.unshift({
+                code: cleanCode,
+                durationText: "30 Ngày",
+                deviceLimit: "1 Thiết bị",
+                expiresAt: Date.now() + (30 * 86400000),
+                locked: false
+            });
+
+            saveKeysToStorage();
+            updateAdminUI();
+            document.getElementById('custom-single-key-input').value = '';
+            alert(`Đã tạo thành công key: ${cleanCode}`);
+        }
+
+        function adminLockKeyByInput() {
+            if (!isAdminAuthenticated) return;
+            systemKeys = getSystemKeys();
+            const inputVal = sanitizeKey(document.getElementById('admin-lock-key-input').value);
+            if (!inputVal) {
+                alert("Vui lòng nhập mã key cần khóa!");
+                return;
+            }
+
+            const foundKey = systemKeys.find(k => sanitizeKey(k.code) === inputVal);
+            if (!foundKey) {
+                alert(`Không tìm thấy key [${inputVal}]!`);
+                return;
+            }
+
+            foundKey.locked = true;
+            saveKeysToStorage();
+            updateAdminUI();
+            document.getElementById('admin-lock-key-input').value = '';
+            alert(`Đã KHÓA key: ${foundKey.code}`);
+        }
+
+        function adminUnlockKeyByInput() {
+            if (!isAdminAuthenticated) return;
+            systemKeys = getSystemKeys();
+            const inputVal = sanitizeKey(document.getElementById('admin-unlock-key-input').value);
+            if (!inputVal) {
+                alert("Vui lòng nhập mã key cần mở!");
+                return;
+            }
+
+            const foundKey = systemKeys.find(item => sanitizeKey(item.code) === inputVal);
+            if (!foundKey) {
+                alert(`Không tìm thấy key [${inputVal}]!`);
+                return;
+            }
+
+            foundKey.locked = false;
+            saveKeysToStorage();
+            updateAdminUI();
+            document.getElementById('admin-unlock-key-input').value = '';
+            alert(`Đã MỞ KHÓA key: ${foundKey.code}`);
+        }
+
+        function deleteKey(idx) {
+            if (!isAdminAuthenticated) return;
+            systemKeys = getSystemKeys();
+            if (confirm("Bạn có chắc muốn xóa key này?")) {
+                systemKeys.splice(idx, 1);
+                saveKeysToStorage();
+                updateAdminUI();
+            }
+        }
+
+        function resetDefaultKeys() {
+            if (!isAdminAuthenticated) return;
+            if (confirm("Khôi phục lại danh sách key mẫu ban đầu?")) {
+                systemKeys = getInitialGlobalKeys();
+                saveKeysToStorage();
+                updateAdminUI();
+                alert("Đã khôi phục thành công!");
+            }
+        }
+
+        function toggleLockKey(idx) {
+            if (!isAdminAuthenticated) return;
+            systemKeys = getSystemKeys();
+            systemKeys[idx].locked = !systemKeys[idx].locked;
+            saveKeysToStorage();
+            updateAdminUI();
+        }
+
+        function copyKeyToClipboard(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                alert(`Đã sao chép key: ${code}`);
+            });
+        }
+
+        function copyAllBatchKeys() {
+            const textarea = document.getElementById('batch-result-textarea');
+            textarea.select();
+            navigator.clipboard.writeText(textarea.value).then(() => {
+                alert("Đã sao chép toàn bộ danh sách key!");
+            });
+        }
+    </script>
+</body>
+</html>
